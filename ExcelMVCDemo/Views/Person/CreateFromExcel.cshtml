@@ -1,0 +1,33 @@
+﻿@model ExcelMVCDemo.Data.Person
+
+@{
+    ViewData["Title"] = "CreateFromExcel";
+}
+
+<h1>CreateFromExcel</h1>
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateFromExcel" method="post" enctype="multipart/form-data">
+            <strong><i class="fas fa-image mr-1"></i> File</strong>
+            <p class="text-muted">
+                <div class="form-group">
+                    <input type="file" name="excelFile" multiple id="excelFile" class="form-control-file" />
+                </div>
+            </p>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
